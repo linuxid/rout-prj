@@ -16,6 +16,10 @@ import { MatListModule } from '@angular/material/list';
 import { MainComponent } from './main/main.component';
 import { ClassesComponent } from './classes/classes.component';
 import {Routes, RouterModule } from '@angular/router';
+import {StudentsService} from './students.service';
+import {FormsModule} from '@angular/forms';
+import { CardsComponent } from './cards/cards.component';
+import {SubjectsService} from './subjects.service';
 
 const appRoutes: Routes = [
   { path: 'main', component: MainComponent},
@@ -27,7 +31,8 @@ const appRoutes: Routes = [
     AppComponent,
     RootNavComponent,
     MainComponent,
-    ClassesComponent
+    ClassesComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +44,10 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
-  providers: [],
+  providers: [StudentsService, SubjectsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,2 +1,28 @@
-<h1>classes works!</h1>
+<!--<h1>classes works!</h1>-->
+<table>
+<table border="1">
+  <tr bgcolor="aqua">
+    <td>Name</td>
+    <td *ngIf="enabled">Age</td>
+    <td *ngIf="enabled">Math</td>
+    <td *ngIf="enabled">Chem</td>
+    <td *ngIf="enabled">Bio</td>
+  </tr>
+
+  <tr *ngFor="let iterStud of students">
+    <td *ngIf="!enabled">{{iterStud.name}}</td>
+    <td *ngIf="enabled"><input type="text" [(ngModel)]="iterStud.name" ></td>
+
+    <td *ngIf="enabled"><input type="number" min="18" max="90" [(ngModel)]="iterStud.age"></td>
+    <td *ngIf="enabled"><input type="number" min="2" max="5" [(ngModel)]="iterStud.math"></td>
+    <td *ngIf="enabled"><input type="number" min="2" max="5" [(ngModel)]="iterStud.chem"></td>
+    <td *ngIf="enabled"><input type="number" min="2" max="5" [(ngModel)]="iterStud.bio"></td>
+
+    <td><button (click)="editStudent(iterStud)">{{edit}}</button></td>
+    <td><button (click)="removeStudent(iterStud)">Delete</button></td>
+  </tr>
+</table>
+
+  <button (click)="addStudent()">Add student</button>
+
 

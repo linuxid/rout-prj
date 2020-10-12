@@ -1,2 +1,28 @@
-<h1>main works!</h1>
+<div *ngFor="let subject of subj;let i=index;">
+  <h1>{{subject}}</h1>
+  <table border="2">
+    <tr *ngFor="let stud of students">
+      <td>{{stud.name}}</td>
+      <td *ngIf="i==0" class="mark" [ngClass]="{
+      five: stud.math==5,
+      four: stud.math==4,
+      three: stud.math==3,
+      two: stud.math==2
+      }">{{stud.math}}</td>
+      <td *ngIf="i==1" class="mark" [ngClass]="{
+      five: stud.chem==5,
+      four: stud.chem==4,
+      three: stud.chem==3,
+      two: stud.chem==2
+      }">{{stud.chem}}</td>
+      <td *ngIf="i==2" class="mark" [ngClass]="{
+      five: stud.bio==5,
+      four: stud.bio==4,
+      three: stud.bio==3,
+      two: stud.bio==2
+      }">{{stud.bio}}</td>
+    </tr>
+  </table>
+</div>
+
 
